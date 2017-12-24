@@ -1,6 +1,13 @@
-echo "+===========================+"
-echo "| Running .bashrc by @gendx |"
-echo "+===========================+"
+# ========== Greeting ==========
+
+CLR="\033[0m"
+RED="\033[0;31m"
+GRN="\033[0;32m"
+YEL="\033[0;33m"
+echo -e "${YEL}+===========================+${CLR}"
+echo -e "${YEL}| ${GRN}Running .bashrc by ${RED}@gendx ${YEL}|${CLR}"
+echo -e "${YEL}+===========================+${CLR}"
+unset CLR RED GRN YEL
 
 # ========== Detect OS ==========
 
@@ -23,6 +30,7 @@ if [ -f /etc/bashrc ]; then
     . /etc/bashrc
 fi
 
+# TODO: move this line at the top?
 # If not running interactively, don't do anything
 case $- in
     *i*) ;;
@@ -82,6 +90,7 @@ fi
 echo "Setting up aliases..."
 alias ll="ls -lF"
 alias lla="ls -lFa"
+alias tree="tree -C"
 
 # ========== Clean up ==========
 
