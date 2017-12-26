@@ -65,9 +65,9 @@ function returncode
 USE_COLOR=true
 
 if ${USE_COLOR} ; then
-    PS1='\[\033[0;31m\]$(returncode)\[\033[0;37m\]\[\033[0;35m\]${debian_chroot:+($debian_chroot)}\[\033[01;32m\]\u@\h\[\033[01;34m\] \w \$\[\033[00m\] '
+    PS1='\[\033[0;31m\]$(returncode)\[\033[0;37m\]\[\033[0;35m\]${debian_chroot:+($debian_chroot)}\[\033[01;32m\]\u\[\033[01;34m\] @ \[\033[0;33m\]\h\[\033[01;34m\] \w \$\[\033[00m\] '
 else
-    PS1='\[$(returncode)\]\u@\h \w \$ '
+    PS1='\[$(returncode)\]\u @ \h \w \$ '
 fi
 
 # ========== Editor ==========
@@ -95,6 +95,7 @@ alias ll="ls -lF"
 alias lla="ls -lFa"
 alias tree="tree -C"
 alias less="/usr/bin/less" # No gunzip and other pdftotext thanks!
+alias lessclr="less -R" # Show colors
 alias gdiff="git diff --no-index --color-words"
 
 # ========== Cool functions ==========
