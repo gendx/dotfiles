@@ -23,11 +23,11 @@ esac
 
 if [ -f /etc/bash.bashrc ]; then
     echo "Loading global definitions from \"/etc/bash.bashrc\"..."
-    . /etc/bash.bashrc
+    source /etc/bash.bashrc
 fi
 if [ -f /etc/bashrc ]; then
     echo "Loading global definitions from \"/etc/bashrc\"..."
-    . /etc/bashrc
+    source /etc/bashrc
 fi
 
 # TODO: move this line at the top?
@@ -72,8 +72,11 @@ fi
 
 # ========== Editor ==========
 
-EDITOR=/usr/bin/vim
-VISUAL=/usr/bin/vim
+if ${OS_LINUX} ; then
+    echo "Setting up EDITOR and VISUAL env..."
+    EDITOR=/usr/bin/vim
+    VISUAL=/usr/bin/vim
+fi
 
 # ========== Alias ==========
 
@@ -91,6 +94,17 @@ echo "Setting up aliases..."
 alias ll="ls -lF"
 alias lla="ls -lFa"
 alias tree="tree -C"
+alias less="/usr/bin/less" # No gunzip and other pdftotext thanks!
+alias gdiff="git diff --no-index --color-words"
+
+# ========== Cool functions ==========
+
+# Dirty hack but useful to decompress raw zlib streams
+if hash gzip &>/dev/null ; then
+    unzlib() {
+        printf "\x1f\x8b\x08\x00\x00\x00\x00\x00" | cat - "$@" | gzip -dc
+    }
+fi
 
 # ========== Clean up ==========
 
@@ -100,6 +114,6 @@ unset OS_MAC OS_LINUX
 
 if [ -f ~/.bashrc.local ]; then
     echo "Loading machine-specific definitions from \"~/.bashrc.local\"..."
-    . ~/.bashrc.local
+    source ~/.bashrc.local
 fi
 
