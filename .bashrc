@@ -72,11 +72,9 @@ fi
 
 # ========== Editor ==========
 
-if ${OS_LINUX} ; then
-    echo "Setting up EDITOR and VISUAL env..."
-    EDITOR=/usr/bin/vim
-    VISUAL=/usr/bin/vim
-fi
+echo "Setting up EDITOR and VISUAL env..."
+EDITOR=/usr/bin/vim
+VISUAL=/usr/bin/vim
 
 # ========== Alias ==========
 
