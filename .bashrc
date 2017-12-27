@@ -1,9 +1,9 @@
 # ========== Greeting ==========
 
-CLR="\033[0m"
-RED="\033[0;31m"
-GRN="\033[0;32m"
-YEL="\033[0;33m"
+CLR="\\033[0m"
+RED="\\033[0;31m"
+GRN="\\033[0;32m"
+YEL="\\033[0;33m"
 echo -e "${YEL}+===========================+${CLR}"
 echo -e "${YEL}| ${GRN}Running .bashrc by ${RED}@gendx ${YEL}|${CLR}"
 echo -e "${YEL}+===========================+${CLR}"
@@ -103,7 +103,7 @@ alias gdiff="git diff --no-index --color-words"
 # Dirty hack but useful to decompress raw zlib streams
 if hash gzip &>/dev/null ; then
     unzlib() {
-        printf "\x1f\x8b\x08\x00\x00\x00\x00\x00" | cat - "$@" | gzip -dc
+        printf "\\x1f\\x8b\\x08\\x00\\x00\\x00\\x00\\x00" | cat - "$@" | gzip -dc
     }
 fi
 
