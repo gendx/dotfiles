@@ -72,9 +72,9 @@ fi
 
 # ========== Editor ==========
 
-echo "Setting up EDITOR and VISUAL env..."
-EDITOR=/usr/bin/vim
-VISUAL=/usr/bin/vim
+echo "Setting up EDITOR and VISUAL env (exported to subprocesses)..."
+export EDITOR=/usr/bin/vim
+export VISUAL=/usr/bin/vim
 
 # ========== Alias ==========
 
