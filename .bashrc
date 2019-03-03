@@ -52,8 +52,7 @@ HISTFILESIZE=2000
 
 # ========== Prompt ==========
 
-function returncode
-{
+function returncode {
     returncode=$?
     if [ $returncode != 0 ]; then
         echo "[$returncode]"
@@ -95,6 +94,10 @@ alias tree="tree -C"
 alias less="/usr/bin/less" # No gunzip and other pdftotext thanks!
 alias lessclr="less -R" # Show colors
 alias gdiff="git diff --no-index --color-words"
+
+function findgrep {
+    find . -type f -exec grep --color=always -n -H $1 "{}" \;
+}
 
 # ========== Cool functions ==========
 
