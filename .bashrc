@@ -92,8 +92,9 @@ alias ll="ls -lF"
 alias lla="ls -lFa"
 alias tree="tree -C"
 alias less="/usr/bin/less" # No gunzip and other pdftotext thanks!
-alias lessclr="less -R" # Show colors
+alias lessr="less -R" # Show colors
 alias gdiff="git diff --no-index --color-words"
+alias grep="grep --color=always"
 
 function findgrep {
     find . -type f -exec grep --color=always -n -H $1 "{}" \;
