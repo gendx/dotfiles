@@ -37,6 +37,18 @@ case $- in
       *) return;;
 esac
 
+# ========== Bash completion ==========
+
+if ! shopt -oq posix; then
+    if [ -f /usr/share/bash-completion/bash_completion ]; then
+        echo "Loading bash completion rules from \"/usr/share/bash-completion/bash_completion\"..."
+        source /usr/share/bash-completion/bash_completion
+    elif [ -f /etc/bash_completion ]; then
+        echo "Loading bash completion rules from \"/etc/bash_completion\"..."
+        source /etc/bash_completion
+    fi
+fi
+
 # ========== History ==========
 
 # don't put duplicate lines or lines starting with space in the history.
