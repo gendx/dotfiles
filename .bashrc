@@ -108,11 +108,17 @@ alias lessr="less -R" # Show colors
 alias gdiff="git diff --no-index --color-words"
 alias grep="grep --color=always"
 
+# ========== Cool functions ==========
+
 function findgrep {
     find . -type f -exec grep --color=always -n -H $1 "{}" \;
 }
 
-# ========== Cool functions ==========
+if [ -f /etc/hosts ]; then
+    hostip() {
+        cat /etc/hosts | grep $HOSTNAME | cut -f1
+    }
+fi
 
 # Dirty hack but useful to decompress raw zlib streams
 if hash gzip &>/dev/null ; then
